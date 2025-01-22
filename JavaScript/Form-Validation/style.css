@@ -1,0 +1,13 @@
+.registration-container {
+    /* border: 2px solid red; */
+    /* padding: 18%; */
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    text-align: left;
+}
+
+body {
+    text-align: center;
+    /* width: 50%; */
+}
