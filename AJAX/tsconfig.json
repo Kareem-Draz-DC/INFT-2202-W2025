@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "esnext",
+      "module": "esnext",
+      "strict": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "rootDir": "./src",
+      "outDir": "./dist",
+      "sourceMap": true,
+      "moduleResolution": "node"
+    },
+    "include": ["src/**/*"]
+  }
