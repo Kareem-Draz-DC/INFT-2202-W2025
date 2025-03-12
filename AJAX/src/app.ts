@@ -9,7 +9,7 @@ let x: number = 1;
 // Choice 1: Make the code wait until the async code is executed and a value is returned before proceeding to the next line of code
 // Async / Await (with Try/Catch)
 // try {
-//     let pokemon: any = await getPokemonFromDatabase(); 
+    // let pokemon: any = await getPokemonFromDatabase(); 
 //     console.log("Line 13 ran!")
 //     console.log(pokemon)
 // } catch(error : any) {
