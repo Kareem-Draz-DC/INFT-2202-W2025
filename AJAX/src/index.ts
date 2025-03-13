@@ -1,11 +1,16 @@
 // const express = require('express');
 
 import express from 'express';
+import bodyParser from 'body-parser'
 import { router } from './routes/router.js';
 
 const app = express();
 
 const port = 3000;
+
+app.use(bodyParser.urlencoded())
+// app.use(bodyParser.json())
+app.use(express.json())
 
 app.set('view engine', 'ejs');
 app.set('views', process.cwd() + '/src/views');

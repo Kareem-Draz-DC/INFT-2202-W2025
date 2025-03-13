@@ -1,6 +1,9 @@
 import express from 'express'
-import { sayHello } from '../controllers/hello.js'
+import { displayHomepage, searchPokemon } from '../controllers/pokemon.js'
 
 export const router: any = express.Router()
 
-router.get("/hello", sayHello)
+router.get("/", displayHomepage)
+router.get("/home", displayHomepage)
+
+router.post("/searchPokemon", searchPokemon)
