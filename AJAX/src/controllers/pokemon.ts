@@ -1,5 +1,5 @@
 
-
+import { pokemonParty, addPokemon, removePokemon } from '../models/Pokemon.js' 
 
 export function displayHomepage(req: Request, res: any): any {
      // Display index.ejs file
