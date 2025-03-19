@@ -11,5 +11,12 @@
     <h2>Name: <%= pokemon.name %></h2>
     <h2>Weight: <%= pokemon.weight %></h2>
     <img src="<%= pokemon.image %>" style="height:300px; width: auto;" />
+
+    <form action="/savePokemon" method="POST">
+        <input hidden name="pokemonName" type="text" value="<%= pokemon.name %>" />
+        <input hidden name="pokemonWeight" type="text" value="<%= pokemon.weight %>" />
+        <input hidden name="pokemonImage" type="text" value="<%= pokemon.image %>" />
+        <button type="submit">Save Pokemon to my Party</button>
+    </form>
 </body>
 </html>

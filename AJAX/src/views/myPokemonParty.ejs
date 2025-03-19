@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Party</title>
+</head>
+<body>
+    <h1>My Pokemon Party</h1>
+    <% if (pokemonParty.length > 0) { %>
+        <% pokemonParty.forEach(function(pokemon) { %>
+            <p>Name: <%= pokemon.name %></p>
+            <p>weight: <%= pokemon.weight %></p>
+            <img src="<%= pokemon.image %>" style="height:300px; width: auto;">
+        <% }) %>
+    <% } else { %>
+        <p>You have no pokemon in your party :( Please save a pokemon in your party to see them here</p>
+    <% } %>
+</body>
+</html>
