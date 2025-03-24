@@ -10,7 +10,8 @@ export function getPokemonParty() {
 export function addPokemon(pokemon: any) {
     pokemonParty.push(pokemon)
 }
-export function removePokemon(pokemon: any) {
-    let i = pokemonParty.indexOf(pokemon)
+export function removePokemon(pokemonName: any) {
+    let pokemonItem: any = pokemonParty.find(pokemon => pokemon.name == pokemonName)
+    let i = pokemonParty.indexOf(pokemonItem)
     pokemonParty.splice(i,1)
 }

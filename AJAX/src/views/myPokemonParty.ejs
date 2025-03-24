@@ -12,6 +12,10 @@
             <p>Name: <%= pokemon.name %></p>
             <p>weight: <%= pokemon.weight %></p>
             <img src="<%= pokemon.image %>" style="height:300px; width: auto;">
+            <form action="/deletePokemon" method="POST">
+                <input hidden type="text" name="pokemonName" value="<%= pokemon.name %>" />
+                <button type="submit">Delete</button>
+            </form>
         <% }) %>
     <% } else { %>
         <p>You have no pokemon in your party :( Please save a pokemon in your party to see them here</p>

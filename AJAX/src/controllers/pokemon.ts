@@ -1,5 +1,15 @@
 
 import { pokemonParty, addPokemon, removePokemon, getPokemonParty, Pokemon } from '../models/Pokemon.js' 
+
+export function deletePokemonFromParty(req: any, res: any) {
+     // Extract the form data
+     let pokemonName = req.body.pokemonName
+     // Delete pokemon from Party
+     removePokemon(pokemonName)
+     // Redirect back to /showParty page
+     res.redirect("/showParty")
+}
+
 export function savePokemonToParty(request: any, response: any) {
      // let pokemonName = request.body?.pokemonName;
      // let pokemonWeight = request.body?.pokemonWeight;
@@ -40,7 +50,7 @@ export async function searchPokemon(req: any, res: any): Promise<any> {
           weight: pokemonData.weight
      }
      
-     console.log(pokemonData)
+     // console.log(pokemonData)
      
      // Display pokemonResults.ejs file
      res.render("pokemonResults.ejs", {pokemon})
