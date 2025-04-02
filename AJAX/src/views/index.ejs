@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
-</head>
-<body>
+<%- include('header.ejs') -%>
     <h1>Pokemon Project</h1>
-
     <form method="POST" action="/searchPokemon">
 
         <label for="pokemonName">Search Pokemon</label>
         <input type="text" name="pokemonName" autocomplete="off" />
         <input type="submit" value="Search !">
     </form>
-
-
-</body>
-</html>
+<%- include('footer.ejs') -%>

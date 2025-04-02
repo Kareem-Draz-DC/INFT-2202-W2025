@@ -1,0 +1,4 @@
+MONGO_CONNECTION_STRING= * PUT YOUR CONNECTION STRING HERE *
+SERVER_PORT=3000
+
+Make sure you change filename to .env 

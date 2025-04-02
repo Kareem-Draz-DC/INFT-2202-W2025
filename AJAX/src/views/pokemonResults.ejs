@@ -1,13 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemon</title>
-</head>
-<body>
+<%- include('header.ejs') -%>
     <h1>Your Searched Pokemon:</h1>
-
     <h2>Name: <%= pokemon.name %></h2>
     <h2>Weight: <%= pokemon.weight %></h2>
     <img src="<%= pokemon.image %>" style="height:300px; width: auto;" />
@@ -18,5 +10,4 @@
         <input hidden name="pokemonImage" type="text" value="<%= pokemon.image %>" />
         <button type="submit">Save Pokemon to my Party</button>
     </form>
-</body>
-</html>
+<%- include('footer.ejs') -%>

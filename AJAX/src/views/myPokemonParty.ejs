@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemon Party</title>
-</head>
-<body>
+<%- include('header.ejs') -%>
     <h1>My Pokemon Party</h1>
     <% if (pokemonParty.length > 0) { %>
         <% pokemonParty.forEach(function(pokemon) { %>
@@ -20,5 +13,4 @@
     <% } else { %>
         <p>You have no pokemon in your party :( Please save a pokemon in your party to see them here</p>
     <% } %>
-</body>
-</html>
+    <%- include('footer.ejs') -%>

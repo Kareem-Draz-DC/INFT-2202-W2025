@@ -10,24 +10,23 @@ export function deletePokemonFromParty(req: any, res: any) {
      res.redirect("/showParty")
 }
 
+import { PokemonModel } from '../models/Pokemon.js'
 export function savePokemonToParty(request: any, response: any) {
-     // let pokemonName = request.body?.pokemonName;
-     // let pokemonWeight = request.body?.pokemonWeight;
-     // let pokemonImage = request.body?.pokemonImage;
-     
      let { pokemonName, pokemonWeight, pokemonImage } = request.body
-
      let newPokemon: Pokemon = {
           name: pokemonName,
           weight: pokemonWeight,
           image: pokemonImage
      }
-     addPokemon(newPokemon)
-     let pokemonParty = getPokemonParty()
-     response.render('myPokemonParty.ejs', {pokemonParty})
+     // addPokemon(newPokemon)
+     PokemonModel.create(newPokemon).then(() => console.log('Pokemon added to Party!'))
+     // let pokemonParty = getPokemonParty()
+     // response.render('myPokemonParty.ejs', {pokemonParty})
+     response.redirect("/showParty")
 }
-export function showPokemonParty(req: any, res: any) {
-     let pokemonParty = getPokemonParty()
+export async function showPokemonParty(req: any, res: any) {
+     // let pokemonParty = getPokemonParty() // this method is fetching the list of pokemons from our old in-memory array of pokemons
+     let pokemonParty = await PokemonModel.find({}) // This method fetches the pokemons from our mongoDB database
      res.render('myPokemonParty.ejs', {pokemonParty})
 }
 export function displayHomepage(req: any, res: any): any {
