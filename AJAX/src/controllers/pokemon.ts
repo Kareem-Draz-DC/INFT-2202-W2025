@@ -1,11 +1,13 @@
 
 import { pokemonParty, addPokemon, removePokemon, getPokemonParty, Pokemon } from '../models/Pokemon.js' 
 
-export function deletePokemonFromParty(req: any, res: any) {
+export async function deletePokemonFromParty(req: any, res: any) {
      // Extract the form data
-     let pokemonName = req.body.pokemonName
+     // let pokemonName = req.body.pokemonName // OLD
+     let pokemonId = req.body.pokemonId
      // Delete pokemon from Party
-     removePokemon(pokemonName)
+     // removePokemon(pokemonName)
+     await PokemonModel.findByIdAndDelete(pokemonId)
      // Redirect back to /showParty page
      res.redirect("/showParty")
 }
@@ -53,4 +55,35 @@ export async function searchPokemon(req: any, res: any): Promise<any> {
      
      // Display pokemonResults.ejs file
      res.render("pokemonResults.ejs", {pokemon})
+}
+
+
+export async function displayEditPokemonPage(request: any, response: any) {
+     try {
+          let pokemonId = request.params.mongoPokemonID
+          let pokemon = await PokemonModel.findById(pokemonId)
+          response.render('editPokemon.ejs', {pokemon})
+     } catch (error: any) {
+          response.json({
+               status: 401,
+               message: "Pokemon not found."
+          })
+     }
+}
+
+export async function updatePokemon(request: any, response: any) {
+     try {
+          let { pokemonName, pokemonWeight } = request.body
+          let { pokemonId } = request.params
+          await PokemonModel.findByIdAndUpdate(pokemonId, {
+               name: pokemonName,
+               weight: pokemonWeight
+          })
+          response.redirect("/showParty")
+     } catch (error: any) {
+          response.json({
+               status: 401,
+               message: "Error updating pokemon."
+          })
+     }
 }

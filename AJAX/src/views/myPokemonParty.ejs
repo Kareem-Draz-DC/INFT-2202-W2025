@@ -5,8 +5,9 @@
             <p>Name: <%= pokemon.name %></p>
             <p>weight: <%= pokemon.weight %></p>
             <img src="<%= pokemon.image %>" style="height:300px; width: auto;">
+            <a href="/editPokemon/<%= pokemon._id %>"><button>Edit Pokemon</button></a>
             <form action="/deletePokemon" method="POST">
-                <input hidden type="text" name="pokemonName" value="<%= pokemon.name %>" />
+                <input hidden type="text" name="pokemonId" value="<%= pokemon._id %>" />
                 <button type="submit">Delete</button>
             </form>
         <% }) %>

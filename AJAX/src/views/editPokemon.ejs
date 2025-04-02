@@ -1,0 +1,14 @@
+<%- include('header.ejs') %>
+<h1>Edit Pokemon</h1>
+
+<form action="/updatePokemon/<%= pokemon._id %>" method="POST">
+    <label>Update Pokemon Name:</label>
+    <input type="text" name="pokemonName" placeholder="<%= pokemon.name %>"><br >
+    <label>Update Pokemon Weight:</label>
+    <input type="text" name="pokemonWeight" placeholder="<%= pokemon.weight %>">
+    <button type="submit">Update Pokemon</button>
+</form>
+
+<img src="<%= pokemon.image %>" style="height:300px; width: auto;">
+
+<%- include('footer.ejs') %>
