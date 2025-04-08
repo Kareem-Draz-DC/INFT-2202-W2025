@@ -33,4 +33,14 @@ Note: I like to follow the structure of building the route -> controller -> view
    5. The editPokemon.ejs page will have a form on it with the existing pokemon data. We will allow the user to modify the data in this form, and have an update button at the bottom
    6. Create a POST /updatePokemon route
    7. Create a updatePokemon(req, res) method in the controllers
-8. 
+ --------------------------------------------------------
+8. Implement Authentication for our App with Passport.js
+   1. Signup.ejs page
+   2. Login.ejs page
+   3. Create route -> POST /login  
+   4. Create route -> POST /signup
+   5. Create passport-jwt.ts middleware
+   6. Mount middleware in index.ts (OR in all our routers)
+   7. Store req.user in global variable & manage sessions
+   8. Add conditional logic in navbar
+   9. Create route GET /logout

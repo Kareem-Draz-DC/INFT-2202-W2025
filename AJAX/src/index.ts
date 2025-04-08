@@ -4,6 +4,7 @@ import bodyParser from 'body-parser'
 import { router } from './routes/router.js';
 import { connectToMongo } from './database/connect.js'
 import dotenv from 'dotenv'
+import { initializePassportMiddleware } from './auth/passport-jwt.js';
 
 const app = express();
 dotenv.config(); // This config method loads the environment variables from the .env file into the process.env global variable
@@ -12,7 +13,7 @@ const port = process.env.SERVER_PORT;
 
 let mongoConnectionString = process.env.MONGO_CONNECTION_STRING || ''
 connectToMongo(mongoConnectionString) // This method is imported from database/connect.js and connects to our database
-
+initializePassportMiddleware()
 // The middleware below parses the body of the incoming POST HTTP request so that it is in the JSON format when we work with it in our controllers
 app.use(bodyParser.urlencoded())
 // app.use(bodyParser.json())

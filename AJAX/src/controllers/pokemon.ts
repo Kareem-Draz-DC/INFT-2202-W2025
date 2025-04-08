@@ -1,5 +1,34 @@
 
 import { pokemonParty, addPokemon, removePokemon, getPokemonParty, Pokemon } from '../models/Pokemon.js' 
+import { UserModel } from '../models/User.js'
+import { genSaltSync, hashSync } from 'bcrypt-ts'
+
+export async function displaySignupPage(req: any, res: any) {
+     res.render('signUp.ejs')
+}
+
+export async function signUp(req: any, res: any) {
+     let { username, email, passwordOne, passwordTwo } = req.body
+
+     if (passwordOne !== passwordTwo) {
+          res.status(400).json({ successful: false, message: "passwords do not match. Please try again"})
+     }
+     let salt = genSaltSync(10)
+     let encryptedPassword = hashSync(passwordOne, salt)
+
+     UserModel.create({
+          username: username,
+          email: email,
+          password: encryptedPassword // We do not want to store a plan password
+     })
+     .then(() => console.log('User created successfully!'))
+     .catch((err: any) => console.log('Error in creating user:', err))
+     res.redirect('/login')
+}
+
+export async function displayLoginPage(req: any, res: any) {
+     res.render('loginPage.ejs')
+}
 
 export async function deletePokemonFromParty(req: any, res: any) {
      // Extract the form data
