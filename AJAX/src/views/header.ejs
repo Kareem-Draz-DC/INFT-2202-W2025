@@ -4,13 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon App</title>
+    <style>
+        ul * {
+            margin: 0 5px 0 5px;
+            list-style-type: none;
+        }
+    </style>
 </head>
 <body>
-    <navbar>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/showParty">Show My Party</a></li>
-        </ul>
+    <navbar style="width: 100vw;">
+            <ul style="display: flex;">
+                <li><a href="/">Home</a></li>
+                <li><a href="/showParty">Show My Party</a></li>
+                <li><a href="/signup">Signup</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+            <li><a href="/signup">Signup</a></li>
+            <li><a href="/login">Login</a></li>
     </navbar>
     
 <!-- Other EJS Content goes -->
