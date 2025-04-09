@@ -13,6 +13,7 @@
 </head>
 <body>
     <navbar style="width: 100vw;">
+        <% if (locals.user) { %>
             <ul style="display: flex;">
                 <li><a href="/">Home</a></li>
                 <li><a href="/showParty">Show My Party</a></li>
@@ -20,8 +21,10 @@
                 <li><a href="/login">Login</a></li>
                 <li><a href="/logout">Logout</a></li>
             </ul>
+        <% } else { %>
             <li><a href="/signup">Signup</a></li>
             <li><a href="/login">Login</a></li>
+        <% } %>
     </navbar>
     
 <!-- Other EJS Content goes -->
